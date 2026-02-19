@@ -1,0 +1,91 @@
+/* Animated Dotted Pattern Backgrounds */
+
+/* Mail Envelope Animation - Flap Opening/Closing */
+@keyframes envelopeFlap {
+  0%, 100% {
+    /* Closed envelope */
+    opacity: 1;
+  }
+  45%, 55% {
+    /* Open envelope */
+    opacity: 0;
+  }
+}
+
+@keyframes envelopeOpen {
+  0%, 100% {
+    /* Closed envelope - hide */
+    opacity: 0;
+  }
+  45%, 55% {
+    /* Open envelope - show */
+    opacity: 1;
+  }
+}
+
+.mail-icon-animated {
+  position: relative;
+  display: inline-block;
+}
+
+.mail-closed {
+  animation: envelopeFlap 4s ease-in-out infinite;
+}
+
+.mail-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: envelopeOpen 4s ease-in-out infinite;
+}
+
+@keyframes colorShift1 {
+  0%, 100% { 
+    background-image: radial-gradient(circle, rgba(6, 182, 212, 0.8) 2px, transparent 2px);
+  }
+  50% { 
+    background-image: radial-gradient(circle, rgba(16, 185, 129, 0.8) 2px, transparent 2px);
+  }
+}
+
+@keyframes colorShift2 {
+  0%, 100% { 
+    background-image: radial-gradient(circle, rgba(37, 99, 235, 0.8) 2.5px, transparent 2.5px);
+  }
+  50% { 
+    background-image: radial-gradient(circle, rgba(139, 92, 246, 0.8) 2.5px, transparent 2.5px);
+  }
+}
+
+@keyframes colorShift3 {
+  0%, 100% { 
+    background-image: radial-gradient(circle, rgba(6, 182, 212, 0.6) 1.5px, transparent 1.5px);
+  }
+  50% { 
+    background-image: radial-gradient(circle, rgba(59, 130, 246, 0.6) 1.5px, transparent 1.5px);
+  }
+}
+
+.dot-pattern-1 {
+  background-image: radial-gradient(circle, rgba(6, 182, 212, 0.8) 2px, transparent 2px);
+  background-size: 16px 16px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 20% 80%, black, transparent);
+  mask-image: radial-gradient(ellipse 90% 70% at 20% 80%, black, transparent);
+  animation: colorShift1 8s ease-in-out infinite;
+}
+
+.dot-pattern-2 {
+  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.8) 2.5px, transparent 2.5px);
+  background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 80% 20%, black, transparent);
+  mask-image: radial-gradient(ellipse 80% 80% at 80% 20%, black, transparent);
+  animation: colorShift2 10s ease-in-out infinite;
+}
+
+.dot-pattern-3 {
+  background-image: radial-gradient(circle, rgba(6, 182, 212, 0.6) 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+  animation: colorShift3 12s ease-in-out infinite;
+}

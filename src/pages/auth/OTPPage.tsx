@@ -97,14 +97,12 @@ export const OTPPage: React.FC<OTPPageProps> = ({ email, onBack }) => {
     <div className="min-h-screen flex">
       {/* Left Side - Hero Section */}
       <div className="hidden lg:flex lg:w-1/2 bg-black relative overflow-hidden">
-        {/* Wavy Dotted Pattern Overlay */}
-        <div className="absolute inset-0 z-0">
-          {/* Dotted pattern layers - Cyan from bottom-left */}
-          <div className="absolute inset-0 opacity-70 dot-pattern-1"></div>
-          {/* Blue from top-right */}
-          <div className="absolute inset-0 opacity-60 dot-pattern-2"></div>
-          {/* Center blend layer */}
-          <div className="absolute inset-0 opacity-40 dot-pattern-3"></div>
+        {/* Radial Gradient Glow Effects */}
+        <div className="absolute inset-0">
+          {/* Green glow from left/center */}
+          <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/30 rounded-full blur-3xl"></div>
+          {/* Purple/Blue glow from right */}
+          <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
         </div>
         
         {/* Content */}
@@ -120,13 +118,11 @@ export const OTPPage: React.FC<OTPPageProps> = ({ email, onBack }) => {
           </div>
 
           {/* Verification Message */}
-          <div className="w-full max-w-md aspect-square bg-zinc-900 rounded-2xl shadow-2xl p-4">
-            <div className="w-full h-full bg-zinc-800 rounded-xl flex items-center justify-center">
-              <div className="text-center">
-                <Mail className="w-24 h-24 mx-auto mb-4 text-white" strokeWidth={1.5} />
-                <p className="text-lg font-medium text-white">Secure Verification</p>
-                <p className="text-sm text-zinc-400 mt-2">Check your email for the code</p>
-              </div>
+          <div className="w-full max-w-md aspect-square bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8 flex items-center justify-center">
+            <div className="text-center">
+              <Mail className="w-24 h-24 mx-auto mb-4 text-white" strokeWidth={1.5} />
+              <p className="text-lg font-medium text-white">Secure Verification</p>
+              <p className="text-sm text-zinc-300 mt-2">Check your email for the code</p>
             </div>
           </div>
 

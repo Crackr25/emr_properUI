@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { AdminSidebar } from '../../components/layout/AdminSidebar';
-import { useTheme } from '../../context/ThemeContext';;
+import { useTheme } from '../../context/ThemeContext';
 import { Button } from '@/components/ui/button';
 import { DataTable } from '@/components/ui/data-table';
 import { User } from '../../types/user.types';
 import { Role } from '../../types/role.types';
-import { createUserAssignmentColumns } from '../../components/admin/UserAssignmentColumns.tsx';
+import { createUserAssignmentColumns } from '../../components/admin/UserAssignmentColumns';
 
 interface AdminRoleUsersPageProps {
   selectedRole: Role;
@@ -21,7 +21,7 @@ const MOCK_USERS: User[] = [
     email: 'john.doe@example.com',
     name: 'John Doe',
     role_id: '1',
-    role_name: 'Physician',
+    role_name: 'Member',
     status: 'active',
     created_at: '2024-01-15T10:00:00Z',
     updated_at: '2024-01-15T10:00:00Z',
@@ -31,7 +31,7 @@ const MOCK_USERS: User[] = [
     email: 'jane.smith@example.com',
     name: 'Jane Smith',
     role_id: '2',
-    role_name: 'Nurse',
+    role_name: 'Admin',
     status: 'active',
     created_at: '2024-01-16T10:00:00Z',
     updated_at: '2024-01-16T10:00:00Z',
@@ -41,7 +41,7 @@ const MOCK_USERS: User[] = [
     email: 'bob.wilson@example.com',
     name: 'Bob Wilson',
     role_id: '3',
-    role_name: 'Staff',
+    role_name: 'Owner',
     status: 'active',
     created_at: '2024-01-17T10:00:00Z',
     updated_at: '2024-01-17T10:00:00Z',
@@ -50,9 +50,9 @@ const MOCK_USERS: User[] = [
     user_id: '4',
     email: 'alice.brown@example.com',
     name: 'Alice Brown',
-    role_id: undefined,
-    role_name: undefined,
-    status: 'pending',
+    role_id: '4',
+    role_name: 'Physician',
+    status: 'active',
     created_at: '2024-01-18T10:00:00Z',
     updated_at: '2024-01-18T10:00:00Z',
   },
@@ -61,7 +61,7 @@ const MOCK_USERS: User[] = [
     email: 'charlie.davis@example.com',
     name: 'Charlie Davis',
     role_id: '1',
-    role_name: 'Physician',
+    role_name: 'Member',
     status: 'active',
     created_at: '2024-01-19T10:00:00Z',
     updated_at: '2024-01-19T10:00:00Z',

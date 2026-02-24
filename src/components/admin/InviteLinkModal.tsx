@@ -80,7 +80,7 @@ export const InviteLinkModal: React.FC<InviteLinkModalProps> = ({
             <Button
               variant="outline"
               onClick={onClose}
-              className={`${theme === 'dark' ? 'border-zinc-700 text-zinc-300 hover:bg-zinc-800' : 'border-gray-300 text-gray-700 hover:bg-gray-100'}`}
+              className={`${theme === 'dark' ? 'border-zinc-700 text-white hover:bg-zinc-800 bg-transparent' : 'border-gray-300 text-gray-700 hover:bg-gray-100 bg-white'}`}
             >
               Close
             </Button>

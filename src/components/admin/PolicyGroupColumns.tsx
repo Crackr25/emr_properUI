@@ -1,50 +1,57 @@
 import { ColumnDef } from '@tanstack/react-table';
-import { Role } from '../../types/role.types';
-import { Edit, Trash2, Users, Shield } from 'lucide-react';
+import { PolicyGroup } from '../../types/policy.types';
+import { Edit, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface CreateRoleColumnsProps {
+interface CreatePolicyGroupColumnsProps {
   theme: string;
-  onEdit: (role: Role) => void;
-  onDelete: (roleId: string) => void;
-  onAssignUsers?: (role: Role) => void;
-  onAssignPolicies?: (role: Role) => void;
+  onEdit: (policyGroup: PolicyGroup) => void;
+  onDelete: (policyId: string) => void;
 }
 
-export const createRoleColumns = ({ theme, onEdit, onDelete, onAssignUsers, onAssignPolicies }: CreateRoleColumnsProps): ColumnDef<Role>[] => [
+export const createPolicyGroupColumns = ({ theme, onEdit, onDelete }: CreatePolicyGroupColumnsProps): ColumnDef<PolicyGroup>[] => [
   {
-    accessorKey: 'role_name',
-    header: 'Role Name',
+    accessorKey: 'policy_name',
+    header: 'Policy Group',
     cell: ({ row }) => (
       <div className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-        {row.original.role_name}
+        {row.original.policy_name}
       </div>
     ),
   },
   {
-    accessorKey: 'role_description',
+    accessorKey: 'pg_short_code',
+    header: 'PG Code',
+    cell: ({ row }) => (
+      <div className={`text-sm font-mono ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>
+        {row.original.pg_short_code}
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'action',
+    header: 'Action',
+    cell: ({ row }) => (
+      <div className={`text-sm ${theme === 'dark' ? 'text-zinc-300' : 'text-gray-700'}`}>
+        {row.original.action}
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'key',
+    header: 'Key',
+    cell: ({ row }) => (
+      <div className={`text-sm font-mono ${theme === 'dark' ? 'text-green-400' : 'text-green-600'}`}>
+        {row.original.key}
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'description',
     header: 'Description',
     cell: ({ row }) => (
       <div className={`text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-gray-600'}`}>
-        {row.original.role_description || '-'}
-      </div>
-    ),
-  },
-  {
-    accessorKey: 'requires_npi',
-    header: 'Requires NPI',
-    cell: ({ row }) => (
-      <div className={`text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-gray-600'}`}>
-        {row.original.requires_npi ? 'Yes' : 'No'}
-      </div>
-    ),
-  },
-  {
-    accessorKey: 'requires_license',
-    header: 'Requires License',
-    cell: ({ row }) => (
-      <div className={`text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-gray-600'}`}>
-        {row.original.requires_license ? 'Yes' : 'No'}
+        {row.original.description || '-'}
       </div>
     ),
   },
@@ -80,28 +87,6 @@ export const createRoleColumns = ({ theme, onEdit, onDelete, onAssignUsers, onAs
     header: 'Actions',
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
-        {onAssignUsers && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => onAssignUsers(row.original)}
-            className={`h-8 px-3 ${theme === 'dark' ? 'hover:bg-blue-950/30 text-blue-400 hover:text-blue-300' : 'hover:bg-blue-50 text-blue-600 hover:text-blue-700'}`}
-          >
-            <Users className="w-4 h-4 mr-1" />
-            <span className="text-xs">Assign Users</span>
-          </Button>
-        )}
-        {onAssignPolicies && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => onAssignPolicies(row.original)}
-            className={`h-8 px-3 ${theme === 'dark' ? 'hover:bg-purple-950/30 text-purple-400 hover:text-purple-300' : 'hover:bg-purple-50 text-purple-600 hover:text-purple-700'}`}
-          >
-            <Shield className="w-4 h-4 mr-1" />
-            <span className="text-xs">Assign Policies</span>
-          </Button>
-        )}
         <Button
           variant="ghost"
           size="sm"
@@ -113,7 +98,7 @@ export const createRoleColumns = ({ theme, onEdit, onDelete, onAssignUsers, onAs
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => onDelete(row.original.role_id)}
+          onClick={() => onDelete(row.original.policy_id)}
           className={`h-8 w-8 p-0 ${theme === 'dark' ? 'hover:bg-red-950/30 text-zinc-400 hover:text-red-400' : 'hover:bg-red-50 text-gray-600 hover:text-red-600'}`}
         >
           <Trash2 className="w-4 h-4" />
